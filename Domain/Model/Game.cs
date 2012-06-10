@@ -16,22 +16,24 @@ namespace Restless.Monopoly.Domain.Model
     /// </summary>
     public class Game
     {
-        public IEnumerable<Player> Players
-        {
-            get
-            {
-                return _players;
-            }
-        }
-
         private List<Player> _players;
 
         public Game(List<Player> players)
         {
             _players = players;
         }
+        
+        public virtual Guid Id { get; set; }
 
-        public void AddPlayer(Player player)
+        public virtual IEnumerable<Player> Players
+        {
+            get
+            {
+                return _players;
+            }
+        }
+              
+        public virtual void AddPlayer(Player player)
         {
             _players.Add(player);
         }
