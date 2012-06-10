@@ -18,17 +18,24 @@ namespace Restless.Monopoly.Domain.Model
         public string Name { get; private set; }
         public Stats Score { get; private set; }
         public List<Card> Cards { get; private set; }
+        public List<House> BuyedHouses { get; private set; }
 
         public void Player(string name)
         {
             Name = name;
             Score = new Stats();
             Cards = new List<Card>();
+            BuyedHouses = new List<House>();
         }
 
         public void addCard(Card card)
         {
             Cards.Add(card);
+        }
+
+        public void addHouse(House house)
+        {
+            BuyedHouses.Add(house);
         }
     }
 }
