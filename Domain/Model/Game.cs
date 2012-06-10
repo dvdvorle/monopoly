@@ -14,7 +14,13 @@ namespace Restless.Monopoly.Domain.Model
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class Board
+    public class Game
     {
+        public IEnumerable<Player> Players { get; private set; }
+
+        public Game(List<Player> players)
+        {
+            Players = players;
+        }
     }
 }
