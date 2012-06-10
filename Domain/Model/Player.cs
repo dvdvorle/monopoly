@@ -15,10 +15,10 @@ namespace Restless.Monopoly.Domain.Model
     /// </summary>
     public class Player
     {
-        public string Name { get; private set; }
-        public Stats Score { get; private set; }
-        public List<Card> Cards { get; private set; }
-        public List<House> BuyedHouses { get; private set; }
+        public virtual string Name { get; private set; }
+        public virtual Stats Score { get; private set; }
+        public virtual List<Card> Cards { get; private set; }
+        public virtual List<House> BuyedHouses { get; private set; }
 
         public Player(string name)
         {
@@ -28,12 +28,12 @@ namespace Restless.Monopoly.Domain.Model
             BuyedHouses = new List<House>();
         }
 
-        public void addCard(Card card)
+        public virtual void addCard(Card card)
         {
             Cards.Add(card);
         }
 
-        public void addHouse(House house)
+        public virtual void addHouse(House house)
         {
             BuyedHouses.Add(house);
         }
