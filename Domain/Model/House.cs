@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Restless.Monopoly.Domain.Model
 {
-    class House : Square
+    public class House : Square
     {
 
     }
