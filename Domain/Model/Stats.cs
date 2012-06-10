@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Restless.Monopoly.Domain.Model
 {
-    class Stats
+    public class Stats
     {
         public int Money { get; private set; }
 
-        public void Stats()
+        public Stats()
         {
             Money = 0;
         }

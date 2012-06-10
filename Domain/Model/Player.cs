@@ -19,7 +19,7 @@ namespace Restless.Monopoly.Domain.Model
         public Stats Score { get; private set; }
         public List<Card> Cards { get; private set; }
 
-        public void Player(string name)
+        public Player(string name)
         {
             Name = name;
             Score = new Stats();
