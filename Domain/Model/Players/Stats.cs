@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Restless.Monopoly.Domain.Model
+namespace Restless.Monopoly.Domain.Model.Players
 {
     public class Stats
     {

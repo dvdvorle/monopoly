@@ -40,12 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Card.cs" />
-    <Compile Include="Model\Game.cs" />
-    <Compile Include="Model\House.cs" />
-    <Compile Include="Model\Player.cs" />
-    <Compile Include="Model\Stats.cs" />
-    <Compile Include="Model\Square.cs" />
+    <Compile Include="Model\Games\Card.cs" />
+    <Compile Include="Model\Games\Game.cs" />
+    <Compile Include="Model\Games\House.cs" />
+    <Compile Include="Model\Players\IPlayerContext.cs" />
+    <Compile Include="Model\Players\Player.cs" />
+    <Compile Include="Model\Players\Stats.cs" />
+    <Compile Include="Model\Games\Square.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

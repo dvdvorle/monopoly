@@ -1,10 +1,10 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="Squary.cs" company="">
+// <copyright file="IPlayerContext.cs" company="">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Restless.Monopoly.Domain.Model
+namespace Restless.Monopoly.Domain.Model.Players
 {
     using System;
     using System.Collections.Generic;
@@ -14,7 +14,8 @@ namespace Restless.Monopoly.Domain.Model
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class Square
+    public interface IPlayerContext
     {
+        Player CurrentPlayer();
     }
 }

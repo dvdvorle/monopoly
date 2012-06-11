@@ -4,12 +4,13 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Restless.Monopoly.Domain.Model
+namespace Restless.Monopoly.Domain.Model.Games
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using Players;
 
     /// <summary>
     /// TODO: Update summary.
