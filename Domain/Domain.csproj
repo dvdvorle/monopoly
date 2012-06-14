@@ -43,7 +43,9 @@
     <Compile Include="Model\Games\Card.cs" />
     <Compile Include="Model\Games\Game.cs" />
     <Compile Include="Model\Games\House.cs" />
+    <Compile Include="Model\Games\IGameRepository.cs" />
     <Compile Include="Model\Players\IPlayerContext.cs" />
+    <Compile Include="Model\Players\IPlayerRepository.cs" />
     <Compile Include="Model\Players\Player.cs" />
     <Compile Include="Model\Players\Stats.cs" />
     <Compile Include="Model\Games\Square.cs" />
