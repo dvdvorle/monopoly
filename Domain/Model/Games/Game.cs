@@ -17,15 +17,21 @@ namespace Restless.Monopoly.Domain.Model.Games
     /// </summary>
     public class Game
     {
-        private List<Player> _players;
+        private IList<Player> _players;
 
-        public Game(List<Player> players)
+        // For NH
+        protected Game()
+        {
+        }
+
+        public Game(string name, IList<Player> players)
         {
             _players = players;
+            Name = name;
         }
-        
-        public virtual Guid Id { get; set; }
 
+        public virtual Guid Id { get; protected set; }
+        public virtual string Name { get; protected set; }
         public virtual IEnumerable<Player> Players
         {
             get

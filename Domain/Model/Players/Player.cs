@@ -16,10 +16,16 @@ namespace Restless.Monopoly.Domain.Model.Players
     /// </summary>
     public class Player
     {
-        public virtual string Name { get; private set; }
-        public virtual Stats Score { get; private set; }
-        public virtual List<Card> Cards { get; private set; }
-        public virtual List<House> BuyedHouses { get; private set; }
+        public virtual Guid Id { get; protected set; }
+        public virtual string Name { get; protected set; }
+        public virtual Stats Score { get; protected set; }
+        public virtual IList<Card> Cards { get; protected set; }
+        public virtual IList<House> BuyedHouses { get; protected set; }
+
+        // For NH
+        protected Player()
+        {
+        }
 
         public Player(string name)
         {

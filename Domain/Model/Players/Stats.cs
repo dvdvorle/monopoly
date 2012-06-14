@@ -7,19 +7,20 @@ namespace Restless.Monopoly.Domain.Model.Players
 {
     public class Stats
     {
-        public int Money { get; private set; }
+        public virtual Guid Id { get; protected set; }
+        public virtual int Money { get; protected set; }
 
         public Stats()
         {
             Money = 0;
         }
 
-        public void AddMoney(int moneyToAdd)
+        public virtual void AddMoney(int moneyToAdd)
         {
             Money += moneyToAdd;
         }
 
-        public int GetAndRemoveMoney(int moneyToRemove)
+        public virtual int GetAndRemoveMoney(int moneyToRemove)
         {
             // TODO: handle not enough money
             Money -= moneyToRemove;

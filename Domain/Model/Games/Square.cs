@@ -16,5 +16,6 @@ namespace Restless.Monopoly.Domain.Model.Games
     /// </summary>
     public class Square
     {
+        public virtual Guid Id { get; protected set; }
     }
 }
