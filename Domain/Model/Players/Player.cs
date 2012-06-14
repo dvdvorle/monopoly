@@ -44,5 +44,10 @@ namespace Restless.Monopoly.Domain.Model.Players
         {
             BuyedHouses.Add(house);
         }
+
+        public virtual void Join(Game game)
+        {
+            game.AddPlayer(this);
+        }
     }
 }
