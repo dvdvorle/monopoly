@@ -16,6 +16,6 @@ namespace Restless.Monopoly.Domain.Model.Players
     /// </summary>
     public interface IPlayerContext
     {
-        Player CurrentPlayer();
+        Player GetCurrentPlayer();
     }
 }
