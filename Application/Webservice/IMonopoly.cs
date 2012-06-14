@@ -11,7 +11,7 @@ namespace Restless.Monopoly.Application.Webservice
     using System.Linq;
     using System.Text;
     using System.ServiceModel;
-using Restless.Monopoly.Application.Model;
+    using Restless.Monopoly.Application.Model;
 
     /// <summary>
     /// TODO: Update summary.
@@ -22,5 +22,6 @@ using Restless.Monopoly.Application.Model;
         IEnumerable<GameDTO> GetGamesList();
         GameDTO CreateNewGame();
         IEnumerable<PlayerDTO> GetPlayersIn(GameDTO game);
+        void JoinGame(GameDTO game);
     }
 }
