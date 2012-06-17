@@ -38,9 +38,14 @@ using Restless.Monopoly.Domain.Model.Players;
                    select new GameDTO() { Id = game.Id, Name = game.Name };
         }
 
-        public GameDTO CreateNewGame()
+        public void CreateNewGame(string gameName)
         {
-            throw new NotImplementedException();
+            var game = new Game(gameName);
+
+            Player currentPlayer = _playerContext.GetCurrentPlayer();
+            game.AddPlayer(currentPlayer);
+
+            _gameRepository.Add(game);
         }
 
         public IEnumerable<PlayerDTO> GetPlayersIn(GameDTO game)

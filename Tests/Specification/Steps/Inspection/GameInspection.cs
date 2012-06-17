@@ -24,10 +24,17 @@ namespace Restless.Monopoly.Tests.Specification.Steps.Inspection
         [Then(@"player '(.*)' should be playing in '(.*)'")]
         public void ThenPlayerShouldBePlayingInGame(string playerName, string gameName)
         {
-            var game = GetCurrentSession().Query<Game>().Single(g => g.Name == gameName);
+            var game = SelectSingle<Game>(g => g.Name == gameName);
             var playerNames = game.Players.Select(p => p.Name);
 
             Assert.That(playerNames, Contains.Item(playerName));
+        }
+
+        [Then(@"a game '(.*)' should exist")]
+        public void ThenAGameGameShouldExist(string gameName)
+        {
+            var game = this.SelectSingle<Game>(g => g.Name == gameName);
+            Assert.That(game, Is.Not.Null);
         }
 
     }

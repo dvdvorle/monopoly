@@ -20,7 +20,7 @@ namespace Restless.Monopoly.Application.Webservice
     public interface IMonopoly
     {
         IEnumerable<GameDTO> GetGamesList();
-        GameDTO CreateNewGame();
+        void CreateNewGame(string gameName);
         IEnumerable<PlayerDTO> GetPlayersIn(GameDTO game);
         void JoinGame(GameDTO game);
     }

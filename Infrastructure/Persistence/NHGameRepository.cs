@@ -28,6 +28,11 @@ namespace Restless.Monopoly.Infrastructure.Persistence
 
         #region IGameRepository Members
 
+        public void Add(Game game)
+        {
+            _session.Save(game);
+        }
+
         public Game GetById(Guid id)
         {
             return _session.Get<Game>(id);

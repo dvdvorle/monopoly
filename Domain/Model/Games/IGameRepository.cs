@@ -16,6 +16,7 @@ namespace Restless.Monopoly.Domain.Model.Games
     /// </summary>
     public interface IGameRepository
     {
+        void Add(Game game);
         Game GetById(Guid id);
         IEnumerable<Game> GetAll();
     }

@@ -24,6 +24,11 @@ namespace Restless.Monopoly.Domain.Model.Games
         {
         }
 
+        public Game(string name)
+            : this(name, new List<Player>())
+        {
+        }
+
         public Game(string name, IList<Player> players)
         {
             _players = players;
