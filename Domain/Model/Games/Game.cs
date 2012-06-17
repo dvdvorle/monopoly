@@ -24,19 +24,19 @@ namespace Restless.Monopoly.Domain.Model.Games
         {
         }
 
-        public Game(string name)
-            : this(name, new List<Player>())
+        public Game(string name, Player owner)
         {
-        }
+            _players = new List<Player>();
+            _players.Add(owner);
 
-        public Game(string name, IList<Player> players)
-        {
-            _players = players;
+            Owner = owner;
             Name = name;
         }
 
         public virtual Guid Id { get; protected set; }
         public virtual string Name { get; protected set; }
+        public virtual Player Owner { get; protected set; }
+
         public virtual IEnumerable<Player> Players
         {
             get

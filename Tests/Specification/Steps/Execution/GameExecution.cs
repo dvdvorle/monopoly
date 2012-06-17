@@ -35,7 +35,7 @@ namespace Restless.Monopoly.Tests.Specification.Steps.Execution
             monopolyService.JoinGame(games.Single(g => g.Name == gameName));
         }
 
-        [When(@"player '(.*)' creates the game '(.*)'")]
+        [When(@"player '(.*)' creates a game '(.*)'")]
         public void WhenPlayerCreatesTheGame(string playerName, string gameName)
         {
             MockPlayerContext.CurrentPlayerName = playerName;

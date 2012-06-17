@@ -65,20 +65,37 @@ namespace Restless.Monopoly.Tests.Specification.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create a new game")]
-        public virtual void CreateANewGame()
+        [NUnit.Framework.DescriptionAttribute("Create a game")]
+        public virtual void CreateAGame()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new game", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a game", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
  testRunner.Given("a player \'Dominique\'");
 #line 8
- testRunner.When("player \'Dominique\' creates the game \'Game\'");
+ testRunner.When("player \'Dominique\' creates a game \'Game\'");
 #line 9
  testRunner.Then("a game \'Game\' should exist");
 #line 10
- testRunner.And("player \'Dominique\' should be playing in \'Game\'");
+ testRunner.And("player \'Dominique\' should be the owner of game \'Game\'");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Owner is also a player")]
+        public virtual void OwnerIsAlsoAPlayer()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Owner is also a player", ((string[])(null)));
+#line 12
+this.ScenarioSetup(scenarioInfo);
+#line 13
+ testRunner.Given("a player \'Dominique\'");
+#line 14
+ testRunner.When("player \'Dominique\' creates a game \'Game\'");
+#line 15
+ testRunner.Then("player \'Dominique\' should be playing in \'Game\'");
 #line hidden
             this.ScenarioCleanup();
         }

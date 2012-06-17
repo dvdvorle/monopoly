@@ -18,10 +18,11 @@ using Restless.Monopoly.Domain.Model.Players;
     /// </summary>
     public class GameBuilder : IBuilder<Game>
     {
-        private List<Player> _players = new List<Player>();
         private string _name = "DefaultGame";
-
-        public GameBuilder WithPlayers(List<Player> players)
+        private Player _owner = new PlayerBuilder().Build();
+        private IEnumerable<Player> _players = new List<Player>();
+        
+        public GameBuilder WithPlayers(IEnumerable<Player> players)
         {
             _players = players;
             return this;
@@ -33,11 +34,23 @@ using Restless.Monopoly.Domain.Model.Players;
             return this;
         }
 
+        public GameBuilder WithOwner(Player owner)
+        {
+            _owner = owner;
+            return this;
+        }
+
         #region IBuilder<Game> Members
 
         public Game Build()
         {
-            return new Game(_name, _players);
+            var game = new Game(_name, _owner);
+            foreach (var player in _players)
+            {
+                game.AddPlayer(player);
+            }
+
+            return game;
         }
 
         #endregion

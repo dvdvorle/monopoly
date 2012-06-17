@@ -14,6 +14,7 @@ namespace Restless.Monopoly.Tests.Specification.Steps.Inspection
     using Restless.Monopoly.Domain.Model.Games;
     using NHibernate.Linq;
     using NUnit.Framework;
+    using Restless.Monopoly.Domain.Model.Players;
 
     /// <summary>
     /// TODO: Update summary.
@@ -31,11 +32,19 @@ namespace Restless.Monopoly.Tests.Specification.Steps.Inspection
         }
 
         [Then(@"a game '(.*)' should exist")]
-        public void ThenAGameGameShouldExist(string gameName)
+        public void ThenAGameShouldExist(string gameName)
         {
             var game = this.SelectSingle<Game>(g => g.Name == gameName);
             Assert.That(game, Is.Not.Null);
         }
 
+        [Then(@"player '(.*)' should be the owner of game '(.*)'")]
+        public void ThenPlayereShouldBeTheOwnerOfGame(string playerName, string gameName)
+        {
+            var player = SelectSingle<Player>(p => p.Name == playerName);
+            var game = this.SelectSingle<Game>(g => g.Name == gameName);
+
+            Assert.That(game.Owner == player);
+        }
     }
 }

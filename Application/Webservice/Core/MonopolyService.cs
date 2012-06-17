@@ -40,10 +40,8 @@ using Restless.Monopoly.Domain.Model.Players;
 
         public void CreateNewGame(string gameName)
         {
-            var game = new Game(gameName);
-
             Player currentPlayer = _playerContext.GetCurrentPlayer();
-            game.AddPlayer(currentPlayer);
+            var game = new Game(gameName, currentPlayer);
 
             _gameRepository.Add(game);
         }
