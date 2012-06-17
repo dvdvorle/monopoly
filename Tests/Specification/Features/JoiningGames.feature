@@ -8,3 +8,10 @@ Scenario: Join existing game
 	And a player 'Dominique'
 	When player 'Dominique' joins 'Game'
 	Then player 'Dominique' should be playing in 'Game'
+
+Scenario: Join a game twice
+	Given a game 'Game'
+	And a player 'Dominique'
+	When player 'Dominique' joins 'Game'
+	And player 'Dominique' joins 'Game'
+	Then player 'Dominique' should be playing in 'Game'

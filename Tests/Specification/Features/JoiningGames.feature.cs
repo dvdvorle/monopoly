@@ -83,6 +83,27 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Join a game twice")]
+        public virtual void JoinAGameTwice()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Join a game twice", ((string[])(null)));
+#line 12
+this.ScenarioSetup(scenarioInfo);
+#line 13
+ testRunner.Given("a game \'Game\'");
+#line 14
+ testRunner.And("a player \'Dominique\'");
+#line 15
+ testRunner.When("player \'Dominique\' joins \'Game\'");
+#line 16
+ testRunner.And("player \'Dominique\' joins \'Game\'");
+#line 17
+ testRunner.Then("player \'Dominique\' should be playing in \'Game\'");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
