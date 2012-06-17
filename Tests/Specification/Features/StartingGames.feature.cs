@@ -19,20 +19,20 @@ namespace Restless.Monopoly.Tests.Specification.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.8.1.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Creating games")]
-    public partial class CreatingGamesFeature
+    [NUnit.Framework.DescriptionAttribute("Addition")]
+    public partial class AdditionFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "CreatingGames.feature"
+#line 1 "StartingGames.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Creating games", "In order to play games\r\nAs a player\r\nI want to be able to create games", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Addition", "In order to play games\r\nAs a game ownerer\r\nI want to be able to start a game", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,39 +65,47 @@ namespace Restless.Monopoly.Tests.Specification.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create a game")]
-        public virtual void CreateAGame()
+        [NUnit.Framework.DescriptionAttribute("Starting a game you own")]
+        public virtual void StartingAGameYouOwn()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a game", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Starting a game you own", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
  testRunner.Given("a player \'Dominique\'");
 #line 8
- testRunner.When("player \'Dominique\' creates a game \'Game\'");
+ testRunner.And("a player \'Justin\'");
 #line 9
- testRunner.Then("a game \'Game\' should exist");
+ testRunner.When("player \'Dominique\' creates a game \'Game\'");
 #line 10
- testRunner.And("player \'Dominique\' should be the owner of game \'Game\'");
+ testRunner.And("player \'Justin\' joins \'Game\'");
 #line 11
- testRunner.And("game \'Game\' should not be started");
+ testRunner.And("player \'Dominique\' starts game \'Game\'");
+#line 12
+ testRunner.Then("game \'Game\' should be started");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Owner is also a player")]
-        public virtual void OwnerIsAlsoAPlayer()
+        [NUnit.Framework.DescriptionAttribute("Starting a game you don\'t own")]
+        public virtual void StartingAGameYouDonTOwn()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Owner is also a player", ((string[])(null)));
-#line 13
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Starting a game you don\'t own", ((string[])(null)));
 #line 14
- testRunner.Given("a player \'Dominique\'");
+this.ScenarioSetup(scenarioInfo);
 #line 15
- testRunner.When("player \'Dominique\' creates a game \'Game\'");
+ testRunner.Given("a player \'Dominique\'");
 #line 16
- testRunner.Then("player \'Dominique\' should be playing in \'Game\'");
+ testRunner.And("a player \'Justin\'");
+#line 17
+ testRunner.When("player \'Justin\' creates a game \'Game\'");
+#line 18
+ testRunner.And("player \'Dominique\' joins \'Game\'");
+#line 19
+ testRunner.And("player \'Dominique\' starts game \'Game\'");
+#line 20
+ testRunner.Then("game \'Game\' should not be started");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -40,9 +40,7 @@ using Restless.Monopoly.Domain.Model.Players;
 
         public void CreateNewGame(string gameName)
         {
-            Player currentPlayer = _playerContext.GetCurrentPlayer();
-            var game = new Game(gameName, currentPlayer);
-
+            Game game = CurrentPlayer.CreateGame(gameName);
             _gameRepository.Add(game);
         }
 
@@ -54,9 +52,26 @@ using Restless.Monopoly.Domain.Model.Players;
         public void JoinGame(GameDTO gameDTO)
         {
             var game = _gameRepository.GetById(gameDTO.Id);
-            _playerContext.GetCurrentPlayer().Join(game);
+            CurrentPlayer.Join(game);
+        }
+
+        public void StartGame(GameDTO gameDTO)
+        {
+            var game = _gameRepository.GetById(gameDTO.Id);
+            CurrentPlayer.Start(game);
         }
 
         #endregion
+
+        #region Helpers
+
+        private Player CurrentPlayer
+        {
+            get
+            {
+                return _playerContext.GetCurrentPlayer();
+            }
+        }
+        #endregion 
     }
 }

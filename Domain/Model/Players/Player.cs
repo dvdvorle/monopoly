@@ -21,6 +21,7 @@ namespace Restless.Monopoly.Domain.Model.Players
         public virtual Stats Score { get; protected set; }
         public virtual IList<Card> Cards { get; protected set; }
         public virtual IList<House> BuyedHouses { get; protected set; }
+        public virtual IList<Game> OwnedGames { get; protected set; }
 
         // For NH
         protected Player()
@@ -33,6 +34,7 @@ namespace Restless.Monopoly.Domain.Model.Players
             Score = new Stats();
             Cards = new List<Card>();
             BuyedHouses = new List<House>();
+            OwnedGames = new List<Game>();
         }
 
         public virtual void addCard(Card card)
@@ -48,6 +50,21 @@ namespace Restless.Monopoly.Domain.Model.Players
         public virtual void Join(Game game)
         {
             game.AddPlayer(this);
+        }
+
+        public virtual void Start(Game game)
+        {
+            if (OwnedGames.Contains(game))
+            {
+                game.Start();
+            }
+        }
+
+        public virtual Game CreateGame(string gameName)
+        {
+            var game = new Game(gameName, this);
+            OwnedGames.Add(game);
+            return game;
         }
     }
 }

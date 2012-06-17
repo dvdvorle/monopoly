@@ -31,11 +31,13 @@ namespace Restless.Monopoly.Domain.Model.Games
 
             Owner = owner;
             Name = name;
+            IsStarted = false;
         }
 
         public virtual Guid Id { get; protected set; }
         public virtual string Name { get; protected set; }
         public virtual Player Owner { get; protected set; }
+        public virtual bool IsStarted { get; protected set; }
 
         public virtual IEnumerable<Player> Players
         {
@@ -48,6 +50,11 @@ namespace Restless.Monopoly.Domain.Model.Games
         public virtual void AddPlayer(Player player)
         {
             _players.Add(player);
+        }
+
+        public virtual void Start()
+        {
+            IsStarted = true;
         }
     }
 }

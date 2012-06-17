@@ -23,5 +23,6 @@ namespace Restless.Monopoly.Application.Webservice
         void CreateNewGame(string gameName);
         IEnumerable<PlayerDTO> GetPlayersIn(GameDTO game);
         void JoinGame(GameDTO game);
+        void StartGame(GameDTO game);
     }
 }

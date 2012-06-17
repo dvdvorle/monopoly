@@ -46,5 +46,19 @@ namespace Restless.Monopoly.Tests.Specification.Steps.Inspection
 
             Assert.That(game.Owner == player);
         }
+
+        [Then(@"game '(.*)' should be started")]
+        public void ThenGameShouldBeStarted(string gameName)
+        {
+            var game = this.SelectSingle<Game>(g => g.Name == gameName);
+            Assert.That(game.IsStarted, Is.True);
+        }
+
+        [Then(@"game '(.*)' should not be started")]
+        public void ThenGameShouldNotBeStarted(string gameName)
+        {
+            var game = this.SelectSingle<Game>(g => g.Name == gameName);
+            Assert.That(game.IsStarted, Is.False);
+        }
     }
 }

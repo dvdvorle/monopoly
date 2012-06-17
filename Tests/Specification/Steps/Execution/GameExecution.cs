@@ -44,5 +44,18 @@ namespace Restless.Monopoly.Tests.Specification.Steps.Execution
             monopolyService.CreateNewGame(gameName);
         }
 
+        [When(@"player '(.*)' starts game '(.*)'")]
+        public void WhenPlayerStartsGame(string playerName, string gameName)
+        {
+            MockPlayerContext.CurrentPlayerName = playerName;
+
+            var monopolyService = LocateService<IMonopoly>();
+            IEnumerable<GameDTO> games = monopolyService.GetGamesList().ToList();
+
+            SimulatePerCallSessionBehavior();
+
+            monopolyService = LocateService<IMonopoly>();
+            monopolyService.StartGame(games.Single(g => g.Name == gameName));
+        }
     }
 }

@@ -8,6 +8,7 @@ Scenario: Create a game
 	When player 'Dominique' creates a game 'Game'
 	Then a game 'Game' should exist 
 	And player 'Dominique' should be the owner of game 'Game'
+	And game 'Game' should not be started
 
 Scenario: Owner is also a player
 	Given a player 'Dominique'

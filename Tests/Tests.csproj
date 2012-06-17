@@ -105,6 +105,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>JoiningGames.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specification\Features\StartingGames.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartingGames.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specification\Steps\BaseSteps.cs" />
     <Compile Include="Specification\Steps\DataSetup\GameSetup.cs" />
     <Compile Include="Specification\Steps\DataSetup\PlayerSetup.cs" />
@@ -124,6 +129,10 @@
     <None Include="Specification\Features\JoiningGames.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>JoiningGames.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specification\Features\StartingGames.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>StartingGames.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
